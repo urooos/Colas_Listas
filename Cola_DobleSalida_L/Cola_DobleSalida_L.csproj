@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17EE2DEA-BDC3-4AC1-AD9D-FF2970331E3D}</ProjectGuid>
+    <ProjectGuid>{7BCD14DF-D6C6-4CA5-BAAB-CAF1B53F86B2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Cola_DobleEntradaR_L</RootNamespace>
-    <AssemblyName>Cola_DobleEntradaR_L</AssemblyName>
+    <RootNamespace>Cola_DobleSalida_L</RootNamespace>
+    <AssemblyName>Cola_DobleSalida_L</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

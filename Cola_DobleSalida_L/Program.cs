@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cola_DobleEntradaR_L
+namespace Cola_DobleSalida_L
 {
-    public class InputRestrictedDeque
+    public class OutputRestrictedDeque
     {
         private DNode head; 
 
-        public InputRestrictedDeque()
+        public OutputRestrictedDeque()
         {
             head = null;
         }
@@ -21,32 +21,45 @@ namespace Cola_DobleEntradaR_L
             return head == null;
         }
 
-        //solo se puede agregar por un extremo (al final)
-        public void Enqueue(int data)
+        
+        public void InsertFront(int data)
         {
             DNode newNode = new DNode(data);
 
-            if (IsEmpty()) 
+            if (IsEmpty())
             {
                 head = newNode;
                 return;
             }
 
-            
+            newNode.Next = head;
+            head.Prev = newNode;
+            head = newNode;
+        }
+
+        
+        public void InsertRear(int data)
+        {
+            DNode newNode = new DNode(data);
+
+            if (IsEmpty())
+            {
+                head = newNode;
+                return;
+            }
+
             DNode h = head;
             while (h.Next != null)
             {
                 h = h.Next;
             }
 
-            
             h.Next = newNode;
             newNode.Prev = h;
         }
 
-        // se puede eliminar por ambos extremos
-        // Eliminamos por el frente (head)
-        public int DequeueFront()
+        
+        public int DeleteFront()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("La deque está vacía");
@@ -60,34 +73,7 @@ namespace Cola_DobleEntradaR_L
             else
             {
                 head = head.Next;
-                head.Prev = null; // rompemos la referencia hacia el anterior
-            }
-
-            return value;
-        }
-
-        // Eliminamos por el final
-        public int DequeueRear()
-        {
-            if (IsEmpty())
-                throw new InvalidOperationException("La deque está vacía");
-
-            
-            DNode h = head;
-            while (h.Next != null)
-            {
-                h = h.Next;
-            }
-
-            int value = h.Data;
-
-            if (h.Prev == null) 
-            {
-                head = null;
-            }
-            else
-            {
-                h.Prev.Next = null; // desconectamos el último nodo
+                head.Prev = null;
             }
 
             return value;
@@ -115,19 +101,21 @@ namespace Cola_DobleEntradaR_L
     {
         static void Main(string[] args)
         {
-            InputRestrictedDeque deque = new InputRestrictedDeque();
+            OutputRestrictedDeque deque = new OutputRestrictedDeque();
 
-            deque.Enqueue(10);
-            deque.Enqueue(20);
-            deque.Enqueue(30);
+            // Insertar por ambos extremos
+            deque.InsertRear(10);
+            deque.InsertFront(5);
+            deque.InsertRear(20);
+            deque.InsertFront(2);
 
-            deque.Show(); // 10 <-> 20 <-> 30 <-> null
+            deque.Show(); // 2 <-> 5 <-> 10 <-> 20 <-> null
 
-            Console.WriteLine("Dequeue Front: " + deque.DequeueFront());
-            deque.Show(); // 20 <-> 30 <-> null
+            Console.WriteLine("Delete Front: " + deque.DeleteFront());
+            deque.Show(); // 5 <-> 10 <-> 20 <-> null
 
-            Console.WriteLine("Dequeue Rear: " + deque.DequeueRear());
-            deque.Show(); // 20 <-> null
+            Console.WriteLine("Delete Front: " + deque.DeleteFront());
+            deque.Show(); // 10 <-> 20 <-> null
 
             Console.ReadLine();
         }
