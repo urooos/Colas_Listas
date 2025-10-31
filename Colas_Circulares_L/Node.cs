@@ -27,7 +27,7 @@ namespace Colas_Circulares_L
         public Node(int data)
         {
             this.data = data;
-            this.next = null;
+            this.next = this; // Apunta a sí mismo desde el inicio
         }
     }
 }
