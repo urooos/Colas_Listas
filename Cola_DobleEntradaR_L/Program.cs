@@ -119,14 +119,16 @@ namespace Cola_DobleEntradaR_L
 
             deque.Enqueue(10);
             deque.Enqueue(20);
+            deque.Show();
+            Console.WriteLine("Agregamos por la cola...");
             deque.Enqueue(30);
 
             deque.Show(); // 10 <-> 20 <-> 30 <-> null
 
-            Console.WriteLine("Dequeue Front: " + deque.DequeueFront());
+            Console.WriteLine("Elimianmos por el frente: " + deque.DequeueFront());
             deque.Show(); // 20 <-> 30 <-> null
 
-            Console.WriteLine("Dequeue Rear: " + deque.DequeueRear());
+            Console.WriteLine("Eliminamos por la cola: " + deque.DequeueRear());
             deque.Show(); // 20 <-> null
 
             Console.ReadLine();

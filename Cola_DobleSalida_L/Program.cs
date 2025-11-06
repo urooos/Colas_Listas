@@ -106,7 +106,11 @@ namespace Cola_DobleSalida_L
             // Insertar por ambos extremos
             deque.InsertRear(10);
             deque.InsertFront(5);
+            deque.Show();
+            Console.WriteLine("Agregamos por la cola");
             deque.InsertRear(20);
+            deque.Show();
+            Console.WriteLine("Agregamos por el frente");
             deque.InsertFront(2);
 
             deque.Show(); // 2 <-> 5 <-> 10 <-> 20 <-> null

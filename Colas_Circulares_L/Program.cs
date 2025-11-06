@@ -76,11 +76,13 @@ namespace Colas_Circulares_L
             }
 
             Node h = head;
-            do
+            while(true)
             {
                 Console.Write(h.Data + " -> ");
                 h = h.Next;
-            } while (h != head);
+                if (h == head)
+                    break;
+            }
             Console.WriteLine("(vuelve al inicio)");
         }
 
@@ -97,7 +99,7 @@ namespace Colas_Circulares_L
 
             cq.Show(); // 1 -> 2 -> 3 -> (vuelve al inicio)
 
-            Console.WriteLine("Dequeued: " + cq.Dequeue());
+            Console.WriteLine("Elemento eliminado " + cq.Dequeue());
             cq.Show(); // 2 -> 3 -> (vuelve al inicio)
 
             Console.ReadLine();

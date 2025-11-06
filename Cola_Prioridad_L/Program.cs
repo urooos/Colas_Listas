@@ -56,7 +56,7 @@ namespace Cola_Prioridad_L
         }
 
         // Mostrar todos los elementos
-        public void PrintQueue()
+        public void Show()
         {
             if (head == null)
             {
@@ -84,9 +84,9 @@ namespace Cola_Prioridad_L
             pq.Enqueue("Tarea3", 2);
             pq.Enqueue("Tarea4", 1);
 
-            pq.PrintQueue();
+            pq.Show();
             Console.WriteLine("Eliminamos el elemento con mayor prioridad: " + pq.Dequeue());
-            pq.PrintQueue();
+            pq.Show();
 
             Console.ReadLine();
         }
